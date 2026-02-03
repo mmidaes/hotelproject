@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Project</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!--room 1-->
+    <h1>Room One</h1>
+    <input id="enterguest1" autofocus placeholder="Enter Guest Name">
+    <button onclick="addguest1()">Check In</button>
+    <input id="removeguest1" placeholder="Remove a Guest">
+    <button onclick="removeguest1()">Remove a Guest</button>
+    <button onclick="lockroom1()">Lock Room</button>
+    <button onclick="removeall1()">Remove All Guests</button>
+    <h2 id="listguest1">Guests: </h2>
+    <!--room 2-->
+    <h1>Room Two</h1>
+    <input id="enterguest2" autofocus placeholder="Enter Guest Name">
+    <button onclick="addguest2()">Check In</button>
+    <input id="removeguest2" placeholder="Remove a Guest">
+    <button onclick="removeguest2()">Remove a Guest</button>
+    <button onclick="lockroom2()">Lock Room</button>
+    <button onclick="removeall2()">Remove All Guests</button>
+    <h2 id="listguest2">Guests: </h2>
+    <!--room 1-->
+    <h1>Room Three</h1>
+    <input id="enterguest3" autofocus placeholder="Enter Guest Name">
+    <button onclick="addguest3()">Check In</button>
+   <input id="removeguest3" placeholder="Remove a Guest">
+    <button onclick="removeguest3()">Remove a Guest</button>
+    <button onclick="lockroom3()">Lock Room</button>
+    <button onclick="removeall3()">Remove All Guests</button>
+    <h2 id="listguest3">Guests: </h2>
+    <!--room 1-->
+    <h1>Room Four</h1>
+    <input id="enterguest4" autofocus placeholder="Enter Guest Name">
+    <button onclick="addguest4()">Check In</button>
+   <input id="removeguest4" placeholder="Remove a Guest">
+    <button onclick="removeguest4()">Remove a Guest</button>
+    <button onclick="lockroom4()">Lock Room</button>
+    <button onclick="removeall4()">Remove All Guests</button>
+    <h2 id="listguest4">Guests: </h2>
+    <!--room 1-->
+    <h1>Room Five</h1>
+    <input id="enterguest5" autofocus placeholder="Enter Guest Name">
+    <button onclick="addguest5()">Check In</button>
+   <input id="removeguest5" placeholder="Remove a Guest">
+    <button onclick="removeguest5()">Remove a Guest</button>
+    <button onclick="lockroom5()">Lock Room</button>
+    <button onclick="removeall5()">Remove All Guests</button>
+    <h2 id="listguest5">Guests: </h2>
+    <!--room 1-->
+    <h1>Room Six</h1>
+    <input id="enterguest6" autofocus placeholder="Enter Guest Name">
+    <button onclick="addguest6()">Check In</button>
+   <input id="removeguest6" placeholder="Remove a Guest">
+    <button onclick="removeguest6()">Remove a Guest</button>
+    <button onclick="lockroom6()">Lock Room</button>
+    <button onclick="removeall6()">Remove All Guests</button>
+    <h2 id="listguest6">Guests: </h2>
+<script>
+//MAX GUESTS
+const maxguests = 4
+//ROOM ONE
+
+// add guest
+let room1 = []
+
+function addguest1() {
+    
+    
+
+    // stop check-in if room is full
+    if (room1.length >= maxguests) {
+        alert("Room 1 is full (maximum 4 guests).")
+        return
+    }
+    let addname1 = document.getElementById("enterguest1").value
+
+    room1.push(addname1) // push adds
+
+    document.getElementById("listguest1").textContent =
+        "Guests: " + room1.join(", ") // join thingy useful it like edits the h2
+}
+
+//remove guest
+function removeguest1() {
+    let removename1 = document.getElementById("removeguest1").value
+
+    // find the guest in the room
+    let index = room1.indexOf(removename1);
+
+    // if guest exist uh remove them duh
+    if (index !== -1) {
+        room1.splice(index, 1);
+    }
+
+    // update da h2
+    document.getElementById("listguest1").textContent =
+        "Guests: " + room1.join(", ");
+}
+
+//lock rooms
+let room1locked = false 
+function lockroom1() {
+    room1locked = !room1locked
+    let addbutton = document.querySelector("#enterguest1 + button")
+    // code above looks for the id of the input and button and later helps to disable it
+    if (room1locked) {
+        addbutton.disabled = true //disables check in *i got this from google i promise i didnt use ai pls mr kam
+        alert("Room 1 is now locked. Check-in disabled.")
+    }
+    else {
+        addbutton.disabled = false // allow check in
+        alert("Room 1 is now unlocked. Check-in available")
+    }
+    
+
+    
+}
+
+
+//remove all guests
+function removeall1() {
+    room1 = []
+    document.getElementById("listguest1").innerHTML = 
+    "Guests: "
+}
+
+
+//ROOM TWO
+
+// add guest
+let room2 = []
+
+function addguest2() {
+    
+    
+
+    // stop check-in if room is full
+    if (room2.length >= maxguests) {
+        alert("Room 2 is full (maximum 4 guests).")
+        return
+    }
+    let addname2 = document.getElementById("enterguest2").value
+
+    room2.push(addname2) // push adds
+
+    document.getElementById("listguest2").textContent =
+        "Guests: " + room2.join(", ") // join thingy useful it like edits the h2
+}
+
+//remove guest
+function removeguest2() {
+    let removename2 = document.getElementById("removeguest2").value
+
+    // find the guest in the room
+    let index = room2.indexOf(removename2);
+
+    // if guest exist uh remove them duh
+    if (index !== -1) {
+        room2.splice(index, 1);
+    }
+
+    // update da h2
+    document.getElementById("listguest2").textContent =
+        "Guests: " + room2.join(", ");
+}
+
+//lock rooms
+let room2locked = false 
+function lockroom2() {
+    room2locked = !room2locked
+    let addbutton = document.querySelector("#enterguest2 + button")
+    // code above looks for the id of the input and button and later helps to disable it
+    if (room2locked) {
+        addbutton.disabled = true //disables check in *i got this from google i promise i didnt use ai pls mr kam
+        alert("Room 2 is now locked. Check-in disabled.")
+    }
+    else {
+        addbutton.disabled = false // allow check in
+        alert("Room 2 is now unlocked. Check-in available")
+    }
+    
+
+    
+}
+
+
+//remove all guests
+function removeall2() {
+    room2 = []
+    document.getElementById("listguest2").innerHTML = 
+    "Guests: "
+}
+
+
+
+
+
+//ROOM THREE
+
+// add guest
+let room3 = []
+
+function addguest3() {
+    
+    
+
+    // stop check-in if room is full
+    if (room3.length >= maxguests) {
+        alert("Room 3 is full (maximum 4 guests).")
+        return
+    }
+    let addname3 = document.getElementById("enterguest3").value
+
+    room3.push(addname3) // push adds
+
+    document.getElementById("listguest3").textContent =
+        "Guests: " + room3.join(", ") // join thingy useful it like edits the h2
+}
+
+//remove guest
+function removeguest3() {
+    let removename3 = document.getElementById("removeguest3").value
+
+    // find the guest in the room
+    let index = room3.indexOf(removename3);
+
+    // if guest exist uh remove them duh
+    if (index !== -1) {
+        room3.splice(index, 1);
+    }
+
+    // update da h2
+    document.getElementById("listguest3").textContent =
+        "Guests: " + room3.join(", ");
+}
+
+//lock rooms
+let room3locked = false 
+function lockroom3() {
+    room3locked = !room3locked
+    let addbutton = document.querySelector("#enterguest3 + button")
+    // code above looks for the id of the input and button and later helps to disable it
+    if (room3locked) {
+        addbutton.disabled = true //disables check in *i got this from google i promise i didnt use ai pls mr kam
+        alert("Room 3 is now locked. Check-in disabled.")
+    }
+    else {
+        addbutton.disabled = false // allow check in
+        alert("Room 3 is now unlocked. Check-in available")
+    }
+    
+
+    
+}
+
+
+//remove all guests
+function removeall3() {
+    room3 = []
+    document.getElementById("listguest3").innerHTML = 
+    "Guests: "
+}
+
+
+//ROOM FOUR
+
+// add guest
+let room4 = []
+
+function addguest4() {
+    
+    
+
+    // stop check-in if room is full
+    if (room4.length >= maxguests) {
+        alert("Room 4 is full (maximum 4 guests).")
+        return
+    }
+    let addname4 = document.getElementById("enterguest4").value
+
+    room4.push(addname4) // push adds
+
+    document.getElementById("listguest4").textContent =
+        "Guests: " + room4.join(", ") // join thingy useful it like edits the h4
+}
+
+//remove guest
+function removeguest4() {
+    let removename4 = document.getElementById("removeguest4").value
+
+    // find the guest in the room
+    let index = room4.indexOf(removename4);
+
+    // if guest exist uh remove them duh
+    if (index !== -1) {
+        room4.splice(index, 1);
+    }
+
+    // update da h4
+    document.getElementById("listguest4").textContent =
+        "Guests: " + room4.join(", ");
+}
+
+//lock rooms
+let room4locked = false 
+function lockroom4() {
+    room4locked = !room4locked
+    let addbutton = document.querySelector("#enterguest4 + button")
+    // code above looks for the id of the input and button and later helps to disable it
+    if (room4locked) {
+        addbutton.disabled = true //disables check in *i got this from google i promise i didnt use ai pls mr kam
+        alert("Room 4 is now locked. Check-in disabled.")
+    }
+    else {
+        addbutton.disabled = false // allow check in
+        alert("Room 4 is now unlocked. Check-in available")
+    }
+    
+
+    
+}
+
+
+//remove all guests
+function removeall4() {
+    room4 = []
+    document.getElementById("listguest4").innerHTML = 
+    "Guests: "
+}
+
+
+//ROOM FIVE
+
+// add guest
+let room5 = []
+
+function addguest5() {
+    
+    
+
+    // stop check-in if room is full
+    if (room5.length >= maxguests) {
+        alert("Room 5 is full (maximum 4 guests).")
+        return
+    }
+    let addname5 = document.getElementById("enterguest5").value
+
+    room5.push(addname5) // push adds
+
+    document.getElementById("listguest5").textContent =
+        "Guests: " + room5.join(", ") // join thingy useful it like edits the h5
+}
+
+//remove guest
+function removeguest5() {
+    let removename5 = document.getElementById("removeguest5").value
+
+    // find the guest in the room
+    let index = room5.indexOf(removename5);
+
+    // if guest exist uh remove them duh
+    if (index !== -1) {
+        room5.splice(index, 1);
+    }
+
+    // update da h5
+    document.getElementById("listguest5").textContent =
+        "Guests: " + room5.join(", ");
+}
+
+//lock rooms
+let room5locked = false 
+function lockroom5() {
+    room5locked = !room5locked
+    let addbutton = document.querySelector("#enterguest5 + button")
+    // code above looks for the id of the input and button and later helps to disable it
+    if (room5locked) {
+        addbutton.disabled = true //disables check in *i got this from google i promise i didnt use ai pls mr kam
+        alert("Room 5 is now locked. Check-in disabled.")
+    }
+    else {
+        addbutton.disabled = false // allow check in
+        alert("Room 5 is now unlocked. Check-in available")
+    }
+    
+
+    
+}
+
+
+//remove all guests
+function removeall5() {
+    room5 = []
+    document.getElementById("listguest5").innerHTML = 
+    "Guests: "
+}
+
+// ROOM SIX
+
+let room6 = []
+
+function addguest6() {
+    
+    
+
+    // stop check-in if room is full
+    if (room6.length >= maxguests) {
+        alert("Room 6 is full (maximum 4 guests).")
+        return
+    }
+    let addname6 = document.getElementById("enterguest6").value
+
+    room6.push(addname6) // push adds
+
+    document.getElementById("listguest6").textContent =
+        "Guests: " + room6.join(", ") // join thingy useful it like edits the h6
+}
+
+//remove guest
+function removeguest6() {
+    let removename6 = document.getElementById("removeguest6").value
+
+    // find the guest in the room
+    let index = room6.indexOf(removename6);
+
+    // if guest exist uh remove them duh
+    if (index !== -1) {
+        room6.splice(index, 1);
+    }
+
+    // update da h6
+    document.getElementById("listguest6").textContent =
+        "Guests: " + room6.join(", ");
+}
+
+//lock rooms
+let room6locked = false 
+function lockroom6() {
+    room6locked = !room6locked
+    let addbutton = document.querySelector("#enterguest6 + button")
+    // code above looks for the id of the input and button and later helps to disable it
+    if (room6locked) {
+        addbutton.disabled = true //disables check in *i got this from google i promise i didnt use ai pls mr kam
+        alert("Room 6 is now locked. Check-in disabled.")
+    }
+    else {
+        addbutton.disabled = false // allow check in
+        alert("Room 6 is now unlocked. Check-in available")
+    }
+    
+
+    
+}
+
+
+//remove all guests
+function removeall6() {
+    room6 = []
+    document.getElementById("listguest6").innerHTML = 
+    "Guests: "
+}
+    
+</script>
+</body>
+</html>
