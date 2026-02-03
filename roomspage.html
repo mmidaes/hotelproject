@@ -79,7 +79,7 @@ let room1 = []
 
 function addguest1() {
     
-    
+    //check in lolz
 
     // stop check-in if room is full
     if (room1.length >= maxguests) {
@@ -99,23 +99,25 @@ function removeguest1() {
     let removename1 = document.getElementById("removeguest1").value
 
     // find the guest in the room
-    let index = room1.indexOf(removename1);
+    let index = room1.indexOf(removename1) // indexOf == finds the position of the first occurence of a specified value in this case being whatever perspon the user wants to get rid of
+
 
     // if guest exist uh remove them duh
-    if (index !== -1) {
-        room1.splice(index, 1);
+    if (index !== -1) { // false values return -1
+        room1.splice(index, 1)
     }
 
     // update da h2
-    document.getElementById("listguest1").textContent =
-        "Guests: " + room1.join(", ");
+    document.getElementById("listguest1").innerHTML =
+        "Guests: " + room1.join(", ")
 }
 
 //lock rooms
 let room1locked = false 
 function lockroom1() {
     room1locked = !room1locked
-    let addbutton = document.querySelector("#enterguest1 + button")
+    let addbutton = document.querySelector("#enterguest1 + button") // finds css through query selector
+    //#enterguest1 is like finding the id and button for it therefore getting it yk 
     // code above looks for the id of the input and button and later helps to disable it
     if (room1locked) {
         addbutton.disabled = true //disables check in *i got this from google i promise i didnt use ai pls mr kam
@@ -135,7 +137,7 @@ function lockroom1() {
 function removeall1() {
     room1 = []
     document.getElementById("listguest1").innerHTML = 
-    "Guests: "
+    "Guests: " // reassigns n empties the thingy
 }
 
 
@@ -166,16 +168,16 @@ function removeguest2() {
     let removename2 = document.getElementById("removeguest2").value
 
     // find the guest in the room
-    let index = room2.indexOf(removename2);
+    let index = room2.indexOf(removename2)
 
     // if guest exist uh remove them duh
     if (index !== -1) {
-        room2.splice(index, 1);
+        room2.splice(index, 1)
     }
 
     // update da h2
     document.getElementById("listguest2").textContent =
-        "Guests: " + room2.join(", ");
+        "Guests: " + room2.join(", ")
 }
 
 //lock rooms
@@ -236,16 +238,16 @@ function removeguest3() {
     let removename3 = document.getElementById("removeguest3").value
 
     // find the guest in the room
-    let index = room3.indexOf(removename3);
+    let index = room3.indexOf(removename3)
 
     // if guest exist uh remove them duh
     if (index !== -1) {
-        room3.splice(index, 1);
+        room3.splice(index, 1)
     }
 
     // update da h2
     document.getElementById("listguest3").textContent =
-        "Guests: " + room3.join(", ");
+        "Guests: " + room3.join(", ")
 }
 
 //lock rooms
@@ -303,16 +305,16 @@ function removeguest4() {
     let removename4 = document.getElementById("removeguest4").value
 
     // find the guest in the room
-    let index = room4.indexOf(removename4);
+    let index = room4.indexOf(removename4)
 
     // if guest exist uh remove them duh
     if (index !== -1) {
-        room4.splice(index, 1);
+        room4.splice(index, 1)
     }
 
     // update da h4
     document.getElementById("listguest4").textContent =
-        "Guests: " + room4.join(", ");
+        "Guests: " + room4.join(", ")
 }
 
 //lock rooms
@@ -370,16 +372,16 @@ function removeguest5() {
     let removename5 = document.getElementById("removeguest5").value
 
     // find the guest in the room
-    let index = room5.indexOf(removename5);
+    let index = room5.indexOf(removename5)
 
     // if guest exist uh remove them duh
     if (index !== -1) {
-        room5.splice(index, 1);
+        room5.splice(index, 1)
     }
 
     // update da h5
     document.getElementById("listguest5").textContent =
-        "Guests: " + room5.join(", ");
+        "Guests: " + room5.join(", ")
 }
 
 //lock rooms
@@ -435,16 +437,16 @@ function removeguest6() {
     let removename6 = document.getElementById("removeguest6").value
 
     // find the guest in the room
-    let index = room6.indexOf(removename6);
+    let index = room6.indexOf(removename6)
 
     // if guest exist uh remove them duh
     if (index !== -1) {
-        room6.splice(index, 1);
+        room6.splice(index, 1)
     }
 
     // update da h6
     document.getElementById("listguest6").textContent =
-        "Guests: " + room6.join(", ");
+        "Guests: " + room6.join(", ")
 }
 
 //lock rooms
