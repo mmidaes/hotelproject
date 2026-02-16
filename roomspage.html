@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hotel Project</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style1.css">
 </head>
 <body>
     <div class="logo-bar">
@@ -80,6 +80,8 @@ let room1 = []
 function addguest1() {
     
     //check in lolz
+    // date
+    const newdate1 = new Date()
 
     // stop check-in if room is full
     if (room1.length >= maxguests) {
@@ -88,10 +90,12 @@ function addguest1() {
     }
     let addname1 = document.getElementById("enterguest1").value
 
-    room1.push(addname1) // push adds
+    room1.push(
+        addname1,
+        ) // push adds
 
-    document.getElementById("listguest1").textContent =
-        "Guests: " + room1.join(", ") // join thingy useful it like edits the h2
+      document.getElementById("listguest1").innerHTML =
+        "Guests: " + room1.join(": ") + " | Checked in: " + newdate1.toLocaleString()
 }
 
 //remove guest
@@ -106,6 +110,7 @@ function removeguest1() {
     if (index !== -1) { // false values return -1
         room1.splice(index, 1)
     }
+
 
     // update da h2
     document.getElementById("listguest1").innerHTML =
