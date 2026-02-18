@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hotel Project</title>
-    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="logo-bar">
@@ -72,6 +72,9 @@
 <script>
 //MAX GUESTS
 const maxguests = 4
+
+//TOTAL GUESTS SO FAR 
+let listofallguests = []
 //ROOM ONE
 
 // add guest
@@ -80,8 +83,6 @@ let room1 = []
 function addguest1() {
     
     //check in lolz
-    // date
-    const newdate1 = new Date()
 
     // stop check-in if room is full
     if (room1.length >= maxguests) {
@@ -90,13 +91,19 @@ function addguest1() {
     }
     let addname1 = document.getElementById("enterguest1").value
 
-    room1.push(
-        addname1,
-        ) // push adds
+    room1.push(addname1) // push adds
 
-      document.getElementById("listguest1").innerHTML =
-        "Guests: " + room1.join(": ") + " | Checked in: " + newdate1.toLocaleString()
+    document.getElementById("listguest1").textContent =
+        "Guests: " + room1.join(", ") + (" at ") + new Date()// join thingy useful it like edits the h2
+   
 }
+
+
+
+
+
+
+
 
 //remove guest
 function removeguest1() {
@@ -110,7 +117,6 @@ function removeguest1() {
     if (index !== -1) { // false values return -1
         room1.splice(index, 1)
     }
-
 
     // update da h2
     document.getElementById("listguest1").innerHTML =
@@ -165,7 +171,7 @@ function addguest2() {
     room2.push(addname2) // push adds
 
     document.getElementById("listguest2").textContent =
-        "Guests: " + room2.join(", ") // join thingy useful it like edits the h2
+        "Guests: " + room2.join(", ") + (" at ") + new Date()// join thingy useful it like edits the h2
 }
 
 //remove guest
@@ -235,7 +241,7 @@ function addguest3() {
     room3.push(addname3) // push adds
 
     document.getElementById("listguest3").textContent =
-        "Guests: " + room3.join(", ") // join thingy useful it like edits the h2
+        "Guests: " + room3.join(", ") + (" at ") + new Date() // join thingy useful it like edits the h2
 }
 
 //remove guest
@@ -302,7 +308,7 @@ function addguest4() {
     room4.push(addname4) // push adds
 
     document.getElementById("listguest4").textContent =
-        "Guests: " + room4.join(", ") // join thingy useful it like edits the h4
+        "Guests: " + room4.join(", ") + (" at ") + new Date()// join thingy useful it like edits the h4
 }
 
 //remove guest
@@ -369,7 +375,7 @@ function addguest5() {
     room5.push(addname5) // push adds
 
     document.getElementById("listguest5").textContent =
-        "Guests: " + room5.join(", ") // join thingy useful it like edits the h5
+        "Guests: " + room5.join(", ") + (" at ") + new Date()// join thingy useful it like edits the h5
 }
 
 //remove guest
@@ -434,7 +440,7 @@ function addguest6() {
     room6.push(addname6) // push adds
 
     document.getElementById("listguest6").textContent =
-        "Guests: " + room6.join(", ") // join thingy useful it like edits the h6
+        "Guests: " + room6.join(", ") + (" at ") + new Date()// join thingy useful it like edits the h6
 }
 
 //remove guest
