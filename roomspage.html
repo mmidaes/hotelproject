@@ -77,7 +77,7 @@ const maxguests = 4
 
 let listofallguests = []
 
-function updateTotalGuests() {
+function updatetotalguest() {
     document.getElementById("listofallguests").textContent =
         "Total Guests: " + listofallguests.join(", ")
 }
@@ -103,8 +103,8 @@ function addguest1() {
 
     room1.push(addname1) // push adds
     listofallguests.push(addname1)
-    updateTotalGuests()
-    savedata()
+    updatetotalguest()//calls it and basically refreshes it to displau the stuff immediatley after i add it same with the line of code right below
+    savedata()// converts the arrays to strings and stores into localstorage
 
 
     document.getElementById("listguest1").textContent =
@@ -184,7 +184,7 @@ function addguest2() {
 
     room2.push(addname2)
     listofallguests.push(addname2)
-    updateTotalGuests()
+    updatetotalguest()
     savedata()
     // push adds
 
@@ -259,7 +259,7 @@ function addguest3() {
     room3.push(addname3) 
     
     listofallguests.push(addname3)
-    updateTotalGuests()
+    updatetotalguest()
     savedata()
 // push adds
 
@@ -331,7 +331,7 @@ function addguest4() {
     room4.push(addname4)
   
 listofallguests.push(addname4)
-updateTotalGuests()
+updatetotalguest()
 savedata()
  // push adds
 
@@ -403,7 +403,7 @@ function addguest5() {
     room5.push(addname5)
     
 listofallguests.push(addname5)
-updateTotalGuests()
+updatetotalguest()
 savedata()
  // push adds
 
@@ -473,7 +473,7 @@ function addguest6() {
     room6.push(addname6) 
     
 listofallguests.push(addname6)
-updateTotalGuests()
+updatetotalguest()
 savedata()
 // push adds
 
@@ -569,7 +569,7 @@ document.getElementById("listguest4").textContent = "Guests: " + room4.join(", "
 document.getElementById("listguest5").textContent = "Guests: " + room5.join(", ")
 document.getElementById("listguest6").textContent = "Guests: " + room6.join(", ")
 
-updateTotalGuests()
+updatetotalguest()
 
     
 </script>

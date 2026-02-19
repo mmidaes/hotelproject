@@ -100,7 +100,7 @@ button:disabled {
     cursor: not-allowed;
 }
 
-/* ===== REMOVE ALL BUTTON (SUBTLE) ===== */
+/* ===== REMOVE ALL BUTTON (SUBTLE) ===== 
 button:last-of-type {
     border-color: #c9c2b6;
     color: #a0a0a0;
@@ -109,7 +109,8 @@ button:last-of-type {
 button:last-of-type:hover {
     background: #e8e4dc;
     color: #444;
-}
+} */
+ 
 
 /* ===== TOTAL GUESTS ===== */
 #listofallguests {
