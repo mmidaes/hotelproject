@@ -70,11 +70,21 @@
 
     <h2 id="listofallguests">Total Guests: </h2>
 <script>
+  
+
 //MAX GUESTS
 const maxguests = 4
 
-//TOTAL GUESTS SO FAR 
 let listofallguests = []
+
+function updateTotalGuests() {
+    document.getElementById("listofallguests").textContent =
+        "Total Guests: " + listofallguests.join(", ")
+}
+
+
+
+
 //ROOM ONE
 
 // add guest
@@ -92,6 +102,10 @@ function addguest1() {
     let addname1 = document.getElementById("enterguest1").value
 
     room1.push(addname1) // push adds
+    listofallguests.push(addname1)
+    updateTotalGuests()
+    savedata()
+
 
     document.getElementById("listguest1").textContent =
         "Guests: " + room1.join(", ") + (" at ") + new Date()// join thingy useful it like edits the h2
@@ -168,7 +182,11 @@ function addguest2() {
     }
     let addname2 = document.getElementById("enterguest2").value
 
-    room2.push(addname2) // push adds
+    room2.push(addname2)
+    listofallguests.push(addname2)
+    updateTotalGuests()
+    savedata()
+    // push adds
 
     document.getElementById("listguest2").textContent =
         "Guests: " + room2.join(", ") + (" at ") + new Date()// join thingy useful it like edits the h2
@@ -238,7 +256,12 @@ function addguest3() {
     }
     let addname3 = document.getElementById("enterguest3").value
 
-    room3.push(addname3) // push adds
+    room3.push(addname3) 
+    
+    listofallguests.push(addname3)
+    updateTotalGuests()
+    savedata()
+// push adds
 
     document.getElementById("listguest3").textContent =
         "Guests: " + room3.join(", ") + (" at ") + new Date() // join thingy useful it like edits the h2
@@ -305,7 +328,12 @@ function addguest4() {
     }
     let addname4 = document.getElementById("enterguest4").value
 
-    room4.push(addname4) // push adds
+    room4.push(addname4)
+  
+listofallguests.push(addname4)
+updateTotalGuests()
+savedata()
+ // push adds
 
     document.getElementById("listguest4").textContent =
         "Guests: " + room4.join(", ") + (" at ") + new Date()// join thingy useful it like edits the h4
@@ -372,7 +400,12 @@ function addguest5() {
     }
     let addname5 = document.getElementById("enterguest5").value
 
-    room5.push(addname5) // push adds
+    room5.push(addname5)
+    
+listofallguests.push(addname5)
+updateTotalGuests()
+savedata()
+ // push adds
 
     document.getElementById("listguest5").textContent =
         "Guests: " + room5.join(", ") + (" at ") + new Date()// join thingy useful it like edits the h5
@@ -437,7 +470,12 @@ function addguest6() {
     }
     let addname6 = document.getElementById("enterguest6").value
 
-    room6.push(addname6) // push adds
+    room6.push(addname6) 
+    
+listofallguests.push(addname6)
+updateTotalGuests()
+savedata()
+// push adds
 
     document.getElementById("listguest6").textContent =
         "Guests: " + room6.join(", ") + (" at ") + new Date()// join thingy useful it like edits the h6
@@ -486,6 +524,53 @@ function removeall6() {
     document.getElementById("listguest6").innerHTML = 
     "Guests: "
 }
+//load saved stuff i think
+// LOAD SAVED DATA
+
+if (localStorage.getItem("room1")) {
+    room1 = localStorage.getItem("room1").split("|")
+}
+if (localStorage.getItem("room2")) {
+    room2 = localStorage.getItem("room2").split("|")
+}
+if (localStorage.getItem("room3")) {
+    room3 = localStorage.getItem("room3").split("|")
+}
+if (localStorage.getItem("room4")) {
+    room4 = localStorage.getItem("room4").split("|")
+}
+if (localStorage.getItem("room5")) {
+    room5 = localStorage.getItem("room5").split("|")
+}
+if (localStorage.getItem("room6")) {
+    room6 = localStorage.getItem("room6").split("|")
+}
+if (localStorage.getItem("allguests")) {
+    listofallguests = localStorage.getItem("allguests").split("|")
+}
+
+
+//SAVED GUESTS FUNCTION 
+function savedata() {
+    localStorage.setItem("room1", room1.join("|"))
+    localStorage.setItem("room2", room2.join("|"))
+    localStorage.setItem("room3", room3.join("|"))
+    localStorage.setItem("room4", room4.join("|"))
+    localStorage.setItem("room5", room5.join("|"))
+    localStorage.setItem("room6", room6.join("|"))
+    localStorage.setItem("allguests", listofallguests.join("|"))
+}
+
+//SHOW TOTAL GUESTS
+document.getElementById("listguest1").textContent = "Guests: " + room1.join(", ")
+document.getElementById("listguest2").textContent = "Guests: " + room2.join(", ")
+document.getElementById("listguest3").textContent = "Guests: " + room3.join(", ")
+document.getElementById("listguest4").textContent = "Guests: " + room4.join(", ")
+document.getElementById("listguest5").textContent = "Guests: " + room5.join(", ")
+document.getElementById("listguest6").textContent = "Guests: " + room6.join(", ")
+
+updateTotalGuests()
+
     
 </script>
 </body>
