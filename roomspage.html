@@ -31,7 +31,7 @@
     <button onclick="lockroom2()">Lock Room</button>
     <button onclick="removeall2()">Remove All Guests</button>
     <h2 id="listguest2">Guests: </h2>
-    <!--room 1-->
+    <!--room 3-->
     <h1>Room Three</h1>
     <input id="enterguest3" autofocus placeholder="Enter Guest Name">
     <button onclick="addguest3()">Check In</button>
@@ -40,7 +40,7 @@
     <button onclick="lockroom3()">Lock Room</button>
     <button onclick="removeall3()">Remove All Guests</button>
     <h2 id="listguest3">Guests: </h2>
-    <!--room 1-->
+    <!--room 4-->
     <h1>Room Four</h1>
     <input id="enterguest4" autofocus placeholder="Enter Guest Name">
     <button onclick="addguest4()">Check In</button>
@@ -49,7 +49,7 @@
     <button onclick="lockroom4()">Lock Room</button>
     <button onclick="removeall4()">Remove All Guests</button>
     <h2 id="listguest4">Guests: </h2>
-    <!--room 1-->
+    <!--room 5-->
     <h1>Room Five</h1>
     <input id="enterguest5" autofocus placeholder="Enter Guest Name">
     <button onclick="addguest5()">Check In</button>
@@ -58,7 +58,7 @@
     <button onclick="lockroom5()">Lock Room</button>
     <button onclick="removeall5()">Remove All Guests</button>
     <h2 id="listguest5">Guests: </h2>
-    <!--room 1-->
+    <!--room 6-->
     <h1>Room Six</h1>
     <input id="enterguest6" autofocus placeholder="Enter Guest Name">
     <button onclick="addguest6()">Check In</button>
@@ -69,6 +69,9 @@
     <h2 id="listguest6">Guests: </h2>
 
     <h2 id="listofallguests">Total Guests: </h2>
+
+    <!--button to clear total guests-->
+    <button onclick="removetotalguests()">Remove Total Guests</button>
 <script>
   
 
@@ -99,16 +102,17 @@ function addguest1() {
         alert("Room 1 is full (maximum 4 guests).")
         return
     }
-    let addname1 = document.getElementById("enterguest1").value
+    let addname1 = document.getElementById("enterguest1").value.trim()
 
-    room1.push(addname1) // push adds
+    room1.push(addname1+ " at " + new Date()) // push adds
     listofallguests.push(addname1)
     updatetotalguest()//calls it and basically refreshes it to displau the stuff immediatley after i add it same with the line of code right below
     savedata()// converts the arrays to strings and stores into localstorage
 
 
-    document.getElementById("listguest1").textContent =
-        "Guests: " + room1.join(", ") + (" at ") + new Date()// join thingy useful it like edits the h2
+    document.getElementById("listguest1").innerHTML =
+        "Guests: " + room1.join("<br>")// join thingy useful it like edits the h2
+    document.getElementById("enterguest1").value = "" //clear input
    
 }
 
@@ -124,7 +128,9 @@ function removeguest1() {
     let removename1 = document.getElementById("removeguest1").value
 
     // find the guest in the room
-    let index = room1.indexOf(removename1) // indexOf == finds the position of the first occurence of a specified value in this case being whatever perspon the user wants to get rid of
+     let index = room1.findIndex(guest =>
+    guest.startsWith(removename1 + " at")
+) // indexOf == finds the position of the first occurence of a specified value in this case being whatever perspon the user wants to get rid of
 
 
     // if guest exist uh remove them duh
@@ -135,6 +141,7 @@ function removeguest1() {
     // update da h2
     document.getElementById("listguest1").innerHTML =
         "Guests: " + room1.join(", ")
+        document.getElementById("removeguest1").value = ""
 }
 
 //lock rooms
@@ -182,14 +189,15 @@ function addguest2() {
     }
     let addname2 = document.getElementById("enterguest2").value
 
-    room2.push(addname2)
+    room2.push(addname2+ " at " + new Date())
     listofallguests.push(addname2)
     updatetotalguest()
     savedata()
     // push adds
 
-    document.getElementById("listguest2").textContent =
-        "Guests: " + room2.join(", ") + (" at ") + new Date()// join thingy useful it like edits the h2
+    document.getElementById("listguest2").innerHTML =
+        "Guests: " + room2.join("<br>")// join thingy useful it like edits the h2
+        document.getElementById("enterguest2").value = "" //clear input
 }
 
 //remove guest
@@ -197,7 +205,9 @@ function removeguest2() {
     let removename2 = document.getElementById("removeguest2").value
 
     // find the guest in the room
-    let index = room2.indexOf(removename2)
+   let index = room2.findIndex(guest =>
+    guest.startsWith(removename2 + " at")
+)
 
     // if guest exist uh remove them duh
     if (index !== -1) {
@@ -207,6 +217,7 @@ function removeguest2() {
     // update da h2
     document.getElementById("listguest2").textContent =
         "Guests: " + room2.join(", ")
+        document.getElementById("removeguest2").value = ""
 }
 
 //lock rooms
@@ -256,15 +267,16 @@ function addguest3() {
     }
     let addname3 = document.getElementById("enterguest3").value
 
-    room3.push(addname3) 
+    room3.push(addname3+ " at " + new Date())
     
     listofallguests.push(addname3)
     updatetotalguest()
     savedata()
 // push adds
 
-    document.getElementById("listguest3").textContent =
-        "Guests: " + room3.join(", ") + (" at ") + new Date() // join thingy useful it like edits the h2
+    document.getElementById("listguest3").innerHTML =
+        "Guests: " + room3.join("<br>")// join thingy useful it like edits the h2
+        document.getElementById("enterguest3").value = "" //clear input
 }
 
 //remove guest
@@ -272,7 +284,9 @@ function removeguest3() {
     let removename3 = document.getElementById("removeguest3").value
 
     // find the guest in the room
-    let index = room3.indexOf(removename3)
+    let index = room3.findIndex(guest =>
+    guest.startsWith(removename3 + " at")
+)
 
     // if guest exist uh remove them duh
     if (index !== -1) {
@@ -282,6 +296,7 @@ function removeguest3() {
     // update da h2
     document.getElementById("listguest3").textContent =
         "Guests: " + room3.join(", ")
+        document.getElementById("removeguest3").value = ""
 }
 
 //lock rooms
@@ -328,15 +343,17 @@ function addguest4() {
     }
     let addname4 = document.getElementById("enterguest4").value
 
-    room4.push(addname4)
+    room4.push(addname4+ " at " + new Date())
   
 listofallguests.push(addname4)
 updatetotalguest()
 savedata()
  // push adds
 
-    document.getElementById("listguest4").textContent =
-        "Guests: " + room4.join(", ") + (" at ") + new Date()// join thingy useful it like edits the h4
+    document.getElementById("listguest4").innerHTML =
+        "Guests: " + room4.join("<br>")// join thingy useful it like edits the h4
+
+        document.getElementById("enterguest4").value = "" //clear input
 }
 
 //remove guest
@@ -344,7 +361,9 @@ function removeguest4() {
     let removename4 = document.getElementById("removeguest4").value
 
     // find the guest in the room
-    let index = room4.indexOf(removename4)
+    let index = room4.findIndex(guest =>
+    guest.startsWith(removename4 + " at")
+)
 
     // if guest exist uh remove them duh
     if (index !== -1) {
@@ -354,6 +373,8 @@ function removeguest4() {
     // update da h4
     document.getElementById("listguest4").textContent =
         "Guests: " + room4.join(", ")
+
+        document.getElementById("removeguest4").value = ""
 }
 
 //lock rooms
@@ -400,15 +421,16 @@ function addguest5() {
     }
     let addname5 = document.getElementById("enterguest5").value
 
-    room5.push(addname5)
+    room5.push(addname5+ " at " + new Date())
     
 listofallguests.push(addname5)
 updatetotalguest()
 savedata()
  // push adds
 
-    document.getElementById("listguest5").textContent =
-        "Guests: " + room5.join(", ") + (" at ") + new Date()// join thingy useful it like edits the h5
+    document.getElementById("listguest5").innerHTML =
+        "Guests: " + room5.join("<br>")// join thingy useful it like edits the h5
+    document.getElementById("enterguest5").value = "" //clear input
 }
 
 //remove guest
@@ -416,7 +438,9 @@ function removeguest5() {
     let removename5 = document.getElementById("removeguest5").value
 
     // find the guest in the room
-    let index = room5.indexOf(removename5)
+    let index = room5.findIndex(guest =>
+    guest.startsWith(removename5 + " at")
+)
 
     // if guest exist uh remove them duh
     if (index !== -1) {
@@ -426,6 +450,8 @@ function removeguest5() {
     // update da h5
     document.getElementById("listguest5").textContent =
         "Guests: " + room5.join(", ")
+
+        document.getElementById("removeguest5").value = ""
 }
 
 //lock rooms
@@ -470,15 +496,16 @@ function addguest6() {
     }
     let addname6 = document.getElementById("enterguest6").value
 
-    room6.push(addname6) 
+    room6.push(addname6+ " at " + new Date())
     
 listofallguests.push(addname6)
 updatetotalguest()
 savedata()
 // push adds
 
-    document.getElementById("listguest6").textContent =
-        "Guests: " + room6.join(", ") + (" at ") + new Date()// join thingy useful it like edits the h6
+   document.getElementById("listguest6").innerHTML =
+        "Guests: " + room6.join("<br>")// join thingy useful it like edits the h6
+        document.getElementById("enterguest6").value = "" //clear input
 }
 
 //remove guest
@@ -486,7 +513,9 @@ function removeguest6() {
     let removename6 = document.getElementById("removeguest6").value
 
     // find the guest in the room
-    let index = room6.indexOf(removename6)
+   let index = room6.findIndex(guest =>
+    guest.startsWith(removename6 + " at")
+)
 
     // if guest exist uh remove them duh
     if (index !== -1) {
@@ -496,6 +525,8 @@ function removeguest6() {
     // update da h6
     document.getElementById("listguest6").textContent =
         "Guests: " + room6.join(", ")
+
+    document.getElementById("removeguest6").value = ""
 }
 
 //lock rooms
@@ -570,6 +601,20 @@ document.getElementById("listguest5").textContent = "Guests: " + room5.join(", "
 document.getElementById("listguest6").textContent = "Guests: " + room6.join(", ")
 
 updatetotalguest()
+
+function removetotalguests() {
+    // Clear the total guests list
+    listofallguests = []
+
+    
+
+    // Update the total guests display
+    document.getElementById("listofallguests").textContent = "Total Guests: "
+
+    // Clear everything from localStorage
+    localStorage.clear()
+}
+
 
     
 </script>
