@@ -81,7 +81,7 @@ const maxguests = 4
 let listofallguests = []
 
 function updatetotalguest() {
-    document.getElementById("listofallguests").textContent =
+    document.getElementById("listofallguests").innerHTML =
         "Total Guests: " + listofallguests.join(", ")
 }
 
@@ -140,7 +140,7 @@ function removeguest1() {
 
     // update da h2
     document.getElementById("listguest1").innerHTML =
-        "Guests: " + room1.join(", ")
+        "Guests: " + room1.join("<br>")
         document.getElementById("removeguest1").value = ""
 }
 
@@ -215,8 +215,8 @@ function removeguest2() {
     }
 
     // update da h2
-    document.getElementById("listguest2").textContent =
-        "Guests: " + room2.join(", ")
+    document.getElementById("listguest2").innerHTML =
+        "Guests: " + room2.join("<br>")
         document.getElementById("removeguest2").value = ""
 }
 
@@ -294,8 +294,8 @@ function removeguest3() {
     }
 
     // update da h2
-    document.getElementById("listguest3").textContent =
-        "Guests: " + room3.join(", ")
+    document.getElementById("listguest3").innerHTML =
+        "Guests: " + room3.join("<br> ")
         document.getElementById("removeguest3").value = ""
 }
 
@@ -371,8 +371,8 @@ function removeguest4() {
     }
 
     // update da h4
-    document.getElementById("listguest4").textContent =
-        "Guests: " + room4.join(", ")
+    document.getElementById("listguest4").innerHTML =
+        "Guests: " + room4.join("<br>")
 
         document.getElementById("removeguest4").value = ""
 }
@@ -448,8 +448,8 @@ function removeguest5() {
     }
 
     // update da h5
-    document.getElementById("listguest5").textContent =
-        "Guests: " + room5.join(", ")
+    document.getElementById("listguest5").innerHTML =
+        "Guests: " + room5.join("<br>")
 
         document.getElementById("removeguest5").value = ""
 }
@@ -523,8 +523,8 @@ function removeguest6() {
     }
 
     // update da h6
-    document.getElementById("listguest6").textContent =
-        "Guests: " + room6.join(", ")
+    document.getElementById("listguest6").innerHTML =
+        "Guests: " + room6.join("<br>")
 
     document.getElementById("removeguest6").value = ""
 }
@@ -593,12 +593,12 @@ function savedata() {
 }
 
 //SHOW TOTAL GUESTS
-document.getElementById("listguest1").textContent = "Guests: " + room1.join(", ")
-document.getElementById("listguest2").textContent = "Guests: " + room2.join(", ")
-document.getElementById("listguest3").textContent = "Guests: " + room3.join(", ")
-document.getElementById("listguest4").textContent = "Guests: " + room4.join(", ")
-document.getElementById("listguest5").textContent = "Guests: " + room5.join(", ")
-document.getElementById("listguest6").textContent = "Guests: " + room6.join(", ")
+document.getElementById("listguest1").innerHTML = "Guests: " + room1.join(", ")
+document.getElementById("listguest2").innerHTML = "Guests: " + room2.join(", ")
+document.getElementById("listguest3").innerHTML = "Guests: " + room3.join(", ")
+document.getElementById("listguest4").innerHTML = "Guests: " + room4.join(", ")
+document.getElementById("listguest5").innerHTML = "Guests: " + room5.join(", ")
+document.getElementById("listguest6").innerHTML = "Guests: " + room6.join(", ")
 
 updatetotalguest()
 
@@ -609,7 +609,7 @@ function removetotalguests() {
     
 
     // Update the total guests display
-    document.getElementById("listofallguests").textContent = "Total Guests: "
+    document.getElementById("listofallguests").innerHTML = "Total Guests: "
 
     // Clear everything from localStorage
     localStorage.clear()
